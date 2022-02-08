@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+import Header from "./components/Header";
+import Login from "./components/Login";
 
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    token: "",
+    isAdmin: false,
+  });
+  const [cart, setCart] = useState([]);
+
   return (
-    <div>
-      <h2>GA SEI-33</h2>
-    </div>
+    <>
+      <switch>
+        <Route exact path="/">
+          <Header cartLength={cart.length} />
+          <LandingPage cart={cart} setCart={setCart} />
+        </Route>
+        <Route path="/login">
+          <Header cartLength={cart.length} />
+          <Login />
+        </Route>
+      </switch>
+    </>
   );
 }
 
