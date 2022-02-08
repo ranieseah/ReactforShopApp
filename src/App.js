@@ -16,12 +16,24 @@ function App() {
     <>
       <switch>
         <Route exact path="/">
-          <Header cartLength={cart.length} />
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
           <LandingPage cart={cart} setCart={setCart} />
         </Route>
         <Route path="/login">
-          <Header cartLength={cart.length} />
-          <Login />
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={true}
+          />
+          <Login setUserInfo={setUserInfo} />
         </Route>
       </switch>
     </>
