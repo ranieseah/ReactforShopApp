@@ -4,14 +4,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
-const EditCard = () => {
-  handleDetails = () => {
-    alert("clicked!");
+const EditCard = (props) => {
+  const history = useHistory();
+  const handleDetails = () => {
+    history.push("/edit/"+props.prodId)
   };
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={handleDetails()}>
+      <CardActionArea onClick={handleDetails}>
         <CardMedia
           component="img"
           height="140"

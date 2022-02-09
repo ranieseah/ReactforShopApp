@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { styled } from "@mui/system";
 import TabsUnstyled from "@mui/base/TabsUnstyled";
@@ -170,7 +170,11 @@ const Login = (props) => {
                         isAdmin: data.is_admin,
                       };
                     });
-                    history.push("/");
+                    if (data.is_admin === true) {
+                      history.push("/admin");
+                    } else {
+                      history.push("/");
+                    }
                   });
               });
           } else {
@@ -270,6 +274,15 @@ const Login = (props) => {
         });
     }
   };
+
+  useEffect(() => {
+    props.setUserInfo({
+      name: "",
+      token: "",
+      isAdmin: false,
+    });
+  }, []);
+
   return (
     <Container maxWidth="sm">
       <TabsUnstyled defaultValue={0}>
