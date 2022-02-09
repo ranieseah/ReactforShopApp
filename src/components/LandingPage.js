@@ -33,13 +33,14 @@ const LandingPage = (props) => {
   for (let i = 0; i < Object.keys(products).length; i++) {
     let cartCount = 0;
     for (const item of props.cart) {
-      if (item === products[i].prod_id) {
+      if (item.prod_id === products[i].prod_id) {
         cartCount++;
       }
     }
     printCards.push(
       <Grid item xs={4}>
         <ProdCard
+          product={products[i]}
           image={products[i].image}
           name={products[i].name}
           description={products[i].description}

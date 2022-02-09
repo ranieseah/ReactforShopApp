@@ -168,6 +168,7 @@ const Login = (props) => {
                         ...prevState,
                         name: data.name,
                         isAdmin: data.is_admin,
+                        id: data.id,
                       };
                     });
                     if (data.is_admin === true) {
@@ -262,6 +263,7 @@ const Login = (props) => {
                         ...prevState,
                         name: data.name,
                         isAdmin: data.is_admin,
+                        id: data.id,
                       };
                     });
                     history.push("/");

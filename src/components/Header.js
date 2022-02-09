@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+
+import {React,useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -38,6 +39,11 @@ const Header = (props) => {
     }
   };
 
+  const goCart= () => {
+      history.push("/cart")
+    }
+  
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -66,7 +72,7 @@ const Header = (props) => {
               get.CNYGoodies( )
             </Typography>
             {props.isAdmin === false && (
-              <IconButton aria-label="cart">
+              <IconButton aria-label="cart" onClick={goCart}>
                 <Badge badgeContent={props.cartLength} color="warning">
                   <ShoppingCartIcon />
                 </Badge>

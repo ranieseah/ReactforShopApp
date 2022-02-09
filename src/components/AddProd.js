@@ -107,7 +107,7 @@ const AddProd = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + props.token,
+          Authorization: "Bearer " + props.token,
         },
         body: JSON.stringify({
           prod_id: prodId,
@@ -120,12 +120,13 @@ const AddProd = (props) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if(data.msg === 'OK') {
-            history.push("/admin")
+          if (data.msg === "OK") {
+            history.push("/admin");
           }
-          console.log(data)
-        }).catch(()=> {
-          setPIerror("This Prod_ID has already been registered!")
+          console.log(data);
+        })
+        .catch(() => {
+          setPIerror("This Prod_ID has already been registered!");
         });
     }
   };

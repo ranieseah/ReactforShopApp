@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import AdminLanding from "./components/AdminLanding";
 import AddProd from "./components/AddProd";
 import EditProd from "./components/EditProd";
+import Cart from "./components/Cart";
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -67,6 +68,16 @@ function App() {
             login={false}
           />
           <EditProd token={userInfo.token} />
+        </Route>
+        <Route path="/cart">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <Cart userInfo={userInfo} cart={cart} setCart={setCart} />
         </Route>
       </switch>
     </>

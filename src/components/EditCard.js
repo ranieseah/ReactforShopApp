@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const EditCard = (props) => {
   const history = useHistory();
   const handleDetails = () => {
-    history.push("/edit/"+props.prodId)
+    history.push("/edit/" + props.prodId);
   };
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -22,7 +22,7 @@ const EditCard = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.name} -- {props.price}
+            {props.name} -- ${props.price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {props.description}
