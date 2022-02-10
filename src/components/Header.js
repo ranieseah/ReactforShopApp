@@ -1,5 +1,4 @@
-
-import {React,useState} from "react";
+import { React, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,7 +11,6 @@ import Badge from "@mui/material/Badge";
 import { useHistory } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
 
 const Header = (props) => {
   const history = useHistory();
@@ -32,17 +30,32 @@ const Header = (props) => {
   };
 
   const goIndex = () => {
-    if(props.isAdmin) {
-      history.push("/admin")
+    if (props.isAdmin) {
+      history.push("/admin");
     } else {
-    history.push("/");
+      history.push("/");
     }
   };
 
-  const goCart= () => {
-      history.push("/cart")
-    }
-  
+  const goSummary = () => {
+    history.push("/summary");
+  };
+
+  const goAllOrders = () => {
+    history.push("/allorders");
+  };
+
+  const goProdOrders = () => {
+    history.push("/productorders");
+  };
+
+  const goOrders = () => {
+    history.push("/orders");
+  };
+
+  const goCart = () => {
+    history.push("/cart");
+  };
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -66,7 +79,7 @@ const Header = (props) => {
               sx={{ mr: 2 }}
               onClick={goIndex}
             >
-            <HomeIcon />
+              <HomeIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               get.CNYGoodies( )
@@ -104,8 +117,20 @@ const Header = (props) => {
                     horizontal: "left",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  {props.isAdmin === false && <MenuItem onClick={handleClose}>Check Orders</MenuItem>}
+                  {props.isAdmin === false && (
+                    <MenuItem onClick={goOrders}>Check Orders</MenuItem>
+                  )}
+                  {props.isAdmin === true && (
+                    <MenuItem onClick={goSummary}>Orders Summary</MenuItem>
+                  )}
+                  {props.isAdmin === true && (
+                    <MenuItem onClick={goAllOrders}>All Orders</MenuItem>
+                  )}
+                  {props.isAdmin === true && (
+                    <MenuItem onClick={goProdOrders}>
+                      Orders by Product
+                    </MenuItem>
+                  )}
                   <MenuItem onClick={goLogout}>Logout</MenuItem>
                 </Menu>
               </>

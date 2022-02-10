@@ -7,6 +7,11 @@ import AdminLanding from "./components/AdminLanding";
 import AddProd from "./components/AddProd";
 import EditProd from "./components/EditProd";
 import Cart from "./components/Cart";
+import CustomerOrders from "./components/CustomerOrders";
+import ViewCustomerOrder from "./components/ViewCustomerOrder";
+import ProductOrders from "./components/ProductOrders";
+import AllOrders from "./components/AllOrders";
+import Summary from "./components/Summary";
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -76,8 +81,58 @@ function App() {
             isAdmin={userInfo.isAdmin}
             setUserInfo={setUserInfo}
             login={false}
-          />
+          />{" "}
           <Cart userInfo={userInfo} cart={cart} setCart={setCart} />
+        </Route>
+        <Route exact path="/orders">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <CustomerOrders token={userInfo.token} />
+        </Route>
+        <Route path="/orderslist/:orderId">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <ViewCustomerOrder token={userInfo.token} />
+        </Route>
+        <Route path="/summary">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <Summary token={userInfo.token} />
+        </Route>
+        <Route exact path="/allorders">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <AllOrders token={userInfo.token} />
+        </Route>
+        <Route exact path="/productorders">
+          <Header
+            cartLength={cart.length}
+            name={userInfo.name}
+            isAdmin={userInfo.isAdmin}
+            setUserInfo={setUserInfo}
+            login={false}
+          />
+          <ProductOrders token={userInfo.token} />
         </Route>
       </switch>
     </>
