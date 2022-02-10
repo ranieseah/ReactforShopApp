@@ -31,7 +31,7 @@ class AuthUser(APIView):
         else:
             return JsonResponse({"msg":"Error - user not logged"})
 ```
-        3. send email + password from React to Django to request for access token, when it's returned, store in userInfo.
+3. send email + password from React to Django to request for access token, when it's returned, store in userInfo.
 ```
           if (data.msg === "OK") {
             fetch("http://127.0.0.1:8000/shop/user-token/", {
@@ -45,7 +45,7 @@ class AuthUser(APIView):
                   token: data.access,
                 });
 ```
-        4. Django returns access token
+4. Django returns access token
 ```
 class UserTokenObtainPairSerializer(TokenObtainPairSerializer):
 
@@ -54,7 +54,7 @@ class UserTokenObtainPairSerializer(TokenObtainPairSerializer):
         token=super().get_token(user)
         return token
 ```
-        5. use user email to retrieve user details, store user details in userInfo, then route users and admins to their seperate pages.
+5. use user email to retrieve user details, store user details in userInfo, then route users and admins to their seperate pages.
 ```
                 fetch("http://127.0.0.1:8000/shop/user/", {
                   method: "POST",
@@ -79,7 +79,7 @@ class UserTokenObtainPairSerializer(TokenObtainPairSerializer):
                   });
               });
 ```
-        6. Django returns user details
+6. Django returns user details
 ```
 class ViewUser(APIView):
     def post(self, request):
