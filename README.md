@@ -1,8 +1,8 @@
 # ReactforShopApp
 
-##React.js -> Django -> PosgresDB
+## React.js -> Django -> PosgresDB
 
-##Login Authentication
+## Login Authentication
 1. send email + password from React to Django
 2. Django validates and responds
 
@@ -52,4 +52,4 @@ fetch("http://127.0.0.1:8000/shop/login/", {
             setPerror("Please check Password.");
           }
         });
-              ```
+```
