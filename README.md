@@ -4,13 +4,6 @@
 
 ## Login Authentication
 
-
-
-        4. Django returns access token
-
-        6. Django returns user details
-        7. set user details as userInfo
-
 1. send email + password from React to Django to validate
 ```
 fetch("http://127.0.0.1:8000/shop/login/", {
